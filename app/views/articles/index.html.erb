@@ -1,0 +1,20 @@
+<h1>Index Page</h1>
+<p>
+	<%= link_to 'create new article', new_article_path%>
+</p>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+	</tr>
+	<% @article.each do |t| %>
+		<tr>
+			<td><%= t.title %></td>
+			<td><%= t.description %></td>
+			<td><%= link_to 'edit', edit_article_path(t)%></td>
+			<td><%= link_to 'show', article_path(t)%></td>
+			<td><%= link_to 'delete', article_path(t), method: :delete,
+				data:{confirm: "Are you sure?"}%></td>
+		</tr>
+	<% end%>
+</table> 
