@@ -1,51 +1,51 @@
-<!-- # <% if @article.errors.any?%>
-# 	<h2>The following error prevented the article from saving</h2>
-# 	<ul>
-# 		<% @article.errors.full_messages.each do |msg|%>
-# 			<li><%= msg%></li>
-# 		<% end%>
-# 	</ul>
-# <%end%>
-# <%= form_for @article do |t|%>
-# 	<p>
-# 		<%= t.label :title %><br>
-# 		<%= t.text_field :title %>
-# 	</p>
-# 	<p>
-# 		<%= t.label :description %><br>
-# 		<%= t.text_field :description %>
-# 	</p>
-# 	<p>
-# 		<%= t.submit %>
-# 	</p>
-# <% end %>
- -->
-<%= render 'shared/errors'%>
+<% if @article.errors.any? %>
+	<div class="row">
+		<div class="col-xs-8 offset-2">
+			<div class="card card-warning">
+				<div class="card-header bg-danger">
+					<h2 class="card-title">
+						<%= pluralize(@article.errors.count, "error") %>
+						prohibited this article from being saved:
+					</h2>
+				</div>
+				<div class="card-body border-grey">
+					<ul>
+						<% @article.errors.full_messages.each do |msg|%>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col-md-8 offset-2">
 		<%= form_for(@article, :html => {class: "form-horizontal", role:
 		"form"}) do |f| %>
 			<div class="form-group">
-				<div class="control-label col-sm-2">
-				<%= f.label :title %>
+				<div class="control-label  col-sm-2">
+					<%= f.label :title %>
 				</div>
-				<div class="col-sm-6">
-				<%= f.text_field :title, class: "form-control", placeholder:
-				"Title of article", autofocus: true %>
+				<div class="col-sm-12 col-md-22  ">
+					<%= f.text_field :title, class: "form-control", placeholder:
+					"Title of article", autofocus: true %>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="control-label col-sm-2">
-				<%= f.label :description %>
+					<%= f.label :description %>
 				</div>
-				<div class="col-sm-6">
-				<%= f.text_area :description, rows: 10, class: "form-control",
-				placeholder: "Body of article" %>
+				<div class="col-sm">
+					<%= f.text_area :description, rows: 10, class: "form-control",
+					placeholder: "Body of article" %>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-				<%= f.submit class: 'btn btn-primary btn-large' %>
+					<%= f.submit class: 'btn btn-primary btn-large' %>
+					<%= link_to 'Back', articles_path %>
 				</div>
 			</div>
 		<% end %>

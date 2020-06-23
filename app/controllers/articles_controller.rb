@@ -5,14 +5,13 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 	def create
-		# render plain: params[:article].inspect
 		@article = Article.new(article_params)
 		
 		if @article.save
 		flash[:success] = "Successfull creaated"
-		# redirect_to article_path(@article)
+		redirect_to article_path(@article)
 		else
-			flash[:success] = "Didn't Created"
+			# flash[:danger] = @article.errors.full_messages.to_sentence
 			render 'new'
 		end
 	end
@@ -31,8 +30,8 @@ class ArticlesController < ApplicationController
 		redirect_to article_path(@article)
 			
 		else
-			flash[:success] = "Article Not updated"
-			render edit
+			# flash[:danger] = @article.errors.full_messages.to_sentence
+			render :edit
 		end
 	end
 	def index
