@@ -1,0 +1,22 @@
+<% if obj.errors.any? %>
+	<div class="row">
+		<div class="col-md-7 offset-2">
+			<div class="card card-warning set-margin">
+				<div class="card-header bg-danger">
+					<h2 class="card-title">
+						<%= pluralize(obj.errors.count, "error") %>
+						prohibited this article from being saved:
+					</h2>
+				</div>
+				<div class="card-body border-grey">
+					<ul>
+						<% obj.errors.full_messages.each do |msg|%>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+

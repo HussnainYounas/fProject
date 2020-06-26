@@ -19,17 +19,17 @@
 						<td><%= article.title %></td>
 						<td><%= article.description %></td>
 						<td>
-							<%= link_to 'edit', edit_article_path(article)%>
-							<span class="glyphicon glyphicon-edit"></span>
+							<%= link_to 'edit', edit_article_path(article), class: "btn btn-warning"%>
+							<!-- <span class="glyphicon glyphicon-edit"></span> -->
 						</td>
 						<td>
-							<%= link_to 'show', article_path(article)%>
-							<span class="glyphicon glyphicon-fullscreen"></span>
+							<%= link_to 'show', article_path(article), class: "btn btn-info"%>
+							<!-- <span class="glyphicon glyphicon-fullscreen"></span> -->
 						</td>
 						<td>
 							<%= link_to 'delete', article_path(article), method: :delete,
-							data:{confirm: "Are you sure?"}%>	
-							<span class="glyphicon glyphicon-remove"></span>
+							data:{confirm: "Are you sure?"}, class: "btn btn-danger"%>	
+							<!-- <span class="glyphicon glyphicon-remove"></span> -->
 						</td>
 					</tr>
 				<% end %>

@@ -1,27 +1,7 @@
-<% if @article.errors.any? %>
-	<div class="row">
-		<div class="col-xs-8 offset-2">
-			<div class="card card-warning">
-				<div class="card-header bg-danger">
-					<h2 class="card-title">
-						<%= pluralize(@article.errors.count, "error") %>
-						prohibited this article from being saved:
-					</h2>
-				</div>
-				<div class="card-body border-grey">
-					<ul>
-						<% @article.errors.full_messages.each do |msg|%>
-							<li><%= msg %></li>
-						<% end %>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <div class="row">
-	<div class="col-md-8 offset-2">
+	<div class="col-md-7 offset-2">
 		<%= form_for(@article, :html => {class: "form-horizontal", role:
 		"form"}) do |f| %>
 			<div class="form-group">
@@ -44,8 +24,8 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<%= f.submit class: 'btn btn-primary btn-large' %>
-					<%= link_to 'Back', articles_path %>
+					<%= f.submit class: 'btn btn-success ' %> |
+					<%= link_to 'Back', articles_path, class: "btn btn-primary" %>
 				</div>
 			</div>
 		<% end %>
