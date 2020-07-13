@@ -1,9 +1,12 @@
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+ <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 <div class="container text-center">	
 	<h1>Index Page</h1>
 	<p>
-		<%= link_to 'create new article', new_article_path%>
+		<% if current_user != nil %>
+		<%= link_to "Create Article", "", data: {toggle: "modal", target: "#exampleModal"}  %>
+		<% end %>
+		<%#= link_to 'Create Article', new_article_path%>
 	</p>
 		<table border="1" class="table table-hover">
 			<thead>	
@@ -11,29 +14,17 @@
 					<th>Title</th>
 					<th>Description</th>
 					<th colspan="3">Actions</th>
+					<th >Created</th>
 				</tr>
-			</thead>
-			<tbody>
-				<% @article.each do |article| %>
-					<tr>
-						<td><%= article.title %></td>
-						<td><%= article.description %></td>
-						<td>
-							<%= link_to 'edit', edit_article_path(article), class: "btn btn-warning"%>
-							<!-- <span class="glyphicon glyphicon-edit"></span> -->
-						</td>
-						<td>
-							<%= link_to 'show', article_path(article), class: "btn btn-info"%>
-							<!-- <span class="glyphicon glyphicon-fullscreen"></span> -->
-						</td>
-						<td>
-							<%= link_to 'delete', article_path(article), method: :delete,
-							data:{confirm: "Are you sure?"}, class: "btn btn-danger"%>	
-							<!-- <span class="glyphicon glyphicon-remove"></span> -->
-						</td>
-					</tr>
-				<% end %>
+			</thead> 
+			<tbody class="articles">
+				<%= render 'articles', abc: @articles %>
 			</tbody>
 		</table> 
 	</div>
+	<div id="edit_article">
+	</div>
+<div class="offset-9">
+	<%= will_paginate %>
+</div>
 </div>

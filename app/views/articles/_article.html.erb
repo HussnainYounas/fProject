@@ -1,0 +1,33 @@
+<tr>
+	<td><%= @article.title %></td>
+	<td><%= @article.description %></td>
+	<td>
+		<% if current_user != nil && current_user.id == @article.user_id %>
+			<%= link_to 'edit', edit_article_path(@article), class: "btn btn-warning" %>
+		<% else %>
+		 	<i>NA</i>
+		<% end %>
+	</td>
+	<td>
+		<% if current_user != nil && current_user.id == @article.user_id %>
+			<%= link_to 'show', article_path(@article), class: "btn btn-info" %>
+		<% else %>
+		 	<i>NA</i>
+		<% end %>
+	</td>
+	<td>
+		<% if current_user != nil && current_user.id == @article.user_id %>
+			<%= link_to 'delete', article_path(@article), method: :delete,
+			data:{disable_with: "Deleting.."},:remote => true, class: "delete_itemm btn btn-danger" %>	
+		<% else %>
+		 	<i>NA</i>
+		<% end %>
+	</td>
+	<td>
+		<small>
+			Created by: <%= @article.user.username if @article.user %>,
+			<%= time_ago_in_words(@article.created_at) %> ago,
+			last updated: <%= time_ago_in_words(@article.updated_at) %> ago
+		</small>
+	</td>
+</tr>

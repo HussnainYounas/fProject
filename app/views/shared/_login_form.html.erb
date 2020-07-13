@@ -1,0 +1,84 @@
+<!-- <div class="modal fade  bdexample-modal-lg"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" ariahidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Create Article</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<div class="modal-body">
+			<%= form_for(Article.new, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+				<div class="form-group">
+					<div class="control-label  col-sm-2">
+						<%= f.label :title %>
+					</div>
+					<div class="col-sm-12 col-md-22  ">
+					<%= f.text_field :title, class: "form-control", placeholder:
+					"Title of article", autofocus: true %>	
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="control-label col-sm-2">
+						<%= f.label :description %>
+					</div>
+					<div class="col-sm">
+						<%= f.text_area :description, rows: 10, class: "form-control",
+						placeholder: "Body of article" %>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<%= f.submit class: 'btn btn-success ' %> |
+						<%= link_to 'Back', articles_path, class: "btn btn-primary" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div> -->
+
+<div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <%#= form_for(Article.new, :html => {class: "form-horizontal", role: "form"}) do |f| %> -->
+				<%= form_with model: Article.new, class: "form-horizontal" do |f| %>
+				<div class="form-group">
+					<div class="control-label  col-sm-2">
+						<%= f.label :title %>
+					</div>
+					<div class="col-sm-12 col-md-22  ">
+					<%= f.text_field :title, class: "form-control", placeholder:
+					"Title of article", autofocus: true %>	
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="control-label col-sm-2">
+						<%= f.label :description %>
+					</div>
+					<div class="col-sm">
+						<%= f.text_area :description, rows: 10, class: "form-control",
+						placeholder: "Body of article" %>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+      
+						<%= f.submit class: 'btn btn-success ' %> |
+						<%= link_to 'Back', articles_path, class: "btn btn-primary" %>
+      
+					</div>
+				</div>
+			<% end %>
+      </div>
+    </div>
+  </div>
+</div>

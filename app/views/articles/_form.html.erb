@@ -1,9 +1,7 @@
-<%= render 'shared/errors', obj: @article %>
-
+<%#= render 'shared/errors', obj: @article %>
 <div class="row">
-	<div class="col-md-7 offset-2">
-		<%= form_for(@article, :html => {class: "form-horizontal", role:
-		"form"}) do |f| %>
+	<div class="col-md-8 offset-2">
+	<%= form_for(@article, :remote => true, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 			<div class="form-group">
 				<div class="control-label  col-sm-2">
 					<%= f.label :title %>
@@ -11,6 +9,7 @@
 				<div class="col-sm-12 col-md-22  ">
 					<%= f.text_field :title, class: "form-control", placeholder:
 					"Title of article", autofocus: true %>
+					
 				</div>
 			</div>
 			<div class="form-group">
@@ -24,7 +23,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<%= f.submit class: 'btn btn-success ' %> |
+					<%= f.submit 'Update', class: 'btn btn-success ' %> |
 					<%= link_to 'Back', articles_path, class: "btn btn-primary" %>
 				</div>
 			</div>

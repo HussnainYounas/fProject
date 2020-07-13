@@ -76,3 +76,13 @@ $navbar-default-bg: black;
 	margin-left: 15px;
 	margin-right: 15px;
 }
+
+/*users styling*/
+.listing {
+list-style: none;
+padding-left: 0;
+}
+
+.pagination ul li {
+	margin: 0 5px;
+}

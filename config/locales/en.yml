@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  warning:
+      login: "You are not eligible for this action please SignIn"
