@@ -1,0 +1,59 @@
+[33mcommit 4f36a2c0e94605318946b0d0748ecc1b3a8ff079[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Mon Jul 13 22:10:02 2020 +0500
+
+    create a edit_article, create_article, delete_article requests using ajax
+
+[33mcommit 70a8fdde34fb37ddc621aafb98746148b009833d[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Sat Jun 27 20:36:15 2020 +0500
+
+    add association between user and articles
+
+[33mcommit 512712e6a3c54502cc5fc8380f52e0189118d513[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Fri Jun 26 23:38:11 2020 +0500
+
+    Added user validations
+
+[33mcommit 663014143aa5705d86cea2e13a5fc68ff88a5b0c[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Fri Jun 26 20:35:47 2020 +0500
+
+    create users table and model
+
+[33mcommit a653e02d38cd8f6748835f3ac38bf044312e56a8[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Fri Jun 26 19:59:21 2020 +0500
+
+    styling of buttons
+
+[33mcommit 341e4a7bf9498b2e02407df07d5ae41ec95dc74c[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Tue Jun 23 22:35:08 2020 +0500
+
+    Add a sticky footer and also styling the errors
+
+[33mcommit 2fa49078d9b67f4a6ba1ca33c01a7911ceadcaeb[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Wed Jun 17 23:18:04 2020 +0500
+
+    creation and styling of navbar also refactoring of errors and messages
+
+[33mcommit 4ee856107686ee96b55d9e391cd98428bf9b6d28[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Wed Jun 17 21:49:22 2020 +0500
+
+    third_commit_17june
+
+[33mcommit feaf3eb07960a0a3ce1121ab6836af0cac974376[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Fri Jun 12 21:21:11 2020 +0500
+
+    secondcom_12june
+
+[33mcommit 9886a2e74f258782d905dcefb218eaaee03ace43[m
+Author: Hussnain Younas <hussnainyouns143@gmail.com>
+Date:   Thu Jun 11 21:25:35 2020 +0500
+
+    first_commit_11june
