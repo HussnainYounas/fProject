@@ -1,0 +1,6 @@
+<%= form_for([@article,@article.comments.build], :remote => remote) do  |comment|%>
+<pre>
+	<%= comment.label :body %> <%= comment.text_field :body %> <%= comment.submit %>	
+</pre>
+
+<% end %>

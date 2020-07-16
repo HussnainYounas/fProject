@@ -33,7 +33,12 @@
 			</td>
 		</tr>
 	</table>
-
-	<%= render 'comments/comment', comment: @article.comments %>
-	<%= render 'comments/commentform' %>
+	<div class="row">
+		<div class="col-7">
+			<%= render 'comments/comment', comment: @article.comments if @article.comments.present? %>
+		</div>
+		<div class="col-5">
+			<%= render 'comments/form', remote: false %>
+		</div>
+	</div>
 </div>

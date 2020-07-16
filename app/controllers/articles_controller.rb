@@ -10,11 +10,11 @@ class ArticlesController < ApplicationController
 		# @article.user = current_user
 		respond_to do |format|
 			if @article.save!
+				format.html {redirect_to @article}
 				format.js
-				format.html {redirect_to @articles, notice: "Article was Successfully created,"}
 				format.json {render :show, status: :created, location: @article}
 			else
-				format.html { render :new }
+				format.html { render :new}
 				format.json { render json: @article.errors, status: :unprocessable_entity }
 			end
 		end
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
         respond_to do |format|
           format.html { redirect_to @article }
           format.js
-      end
+      	end
       end
 
 	def index

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Welcome to the Alpha blog #{@user.username}"
 			redirect_to articles_path
 		else
+			flash[:danger] = @user.errors.full_messages.to_sentence
 			render 'new'
 		end
 	end
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
 			flash[:success] = "your account was updated	successfully"
 			redirect_to articles_path
 		else
+			flash[:danger] = @user.errors.full_messages.to_sentence
 			render 'edit'
 		end
 	end

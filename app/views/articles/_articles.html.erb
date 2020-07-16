@@ -5,7 +5,7 @@
 		<td><%= article.description %></td>
 		<td>
 			<% if current_user != nil && current_user.id == article.user_id %>
-				<%= link_to 'edit', edit_article_path(article), :remote => true, class: "edit_article btn btn-warning"%>
+				<%= link_to 'edit', edit_article_path(article), :remote => true,  class: "edit_article btn btn-warning"%>
 			<% else %>
 			 	<i>NA</i>
 			<% end %>

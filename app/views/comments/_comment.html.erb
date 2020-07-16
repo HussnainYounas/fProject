@@ -1,7 +1,4 @@
-<% if comment == nil %>
-	<p> Comment is nil </p>
-<% else %>
-	<p>
-		<%= comment.inspect %>
-	</p>
+<% comment.each do |comment|%>
+<p><h3>Comment: </h3> <%= comment.body%></p>
+<%= link_to "delete", article_comment_path(comment.article,comment), method: :delete, data:{confirm: "are you sure"}%>
 <% end %>
