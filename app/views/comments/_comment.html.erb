@@ -1,4 +1,8 @@
-<% comment.each do |comment|%>
-<p><h3>Comment: </h3> <%= comment.body%></p>
-<%= link_to "delete", article_comment_path(comment.article,comment), method: :delete, data:{confirm: "are you sure"}%>
-<% end %>
+<tr>
+    <td>
+      <%= @comment.body%>
+    </td>
+    <td>
+    	<%= link_to "delete", [@article,@comment], method: :delete, data:{confirm: "are you sure"}, class: "glyphicon glyphicon-trash btn btn-danger " %>
+    </td>
+</tr>

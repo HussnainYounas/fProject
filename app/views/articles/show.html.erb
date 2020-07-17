@@ -30,15 +30,16 @@
 				<%= link_to 'Back', articles_path, class: "btn btn-info" %> |
 				<%= link_to "Edit", edit_article_path(@article),class: "btn btn-xs btn-primary" %> |
 				<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you suure?"},class: "btn btn-danger" %>
+				<%= link_to "add comment", new_article_comment_path(@article), :remote => true,class: "btn btn-success " %>
 			</td>
 		</tr>
 	</table>
-	<div class="row">
-		<div class="col-7">
-			<%= render 'comments/comment', comment: @article.comments if @article.comments.present? %>
+	
+		<%#= render "comments/form", remote: true %>
+		<div class="new-comment-container">
+			new comment container
 		</div>
-		<div class="col-5">
-			<%= render 'comments/form', remote: false %>
+		<div class="show">
+			<%= render 'comments/comments', comment: @article.comments if @article.comments.present? %>
 		</div>
-	</div>
 </div>

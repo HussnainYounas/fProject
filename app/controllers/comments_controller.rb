@@ -1,14 +1,24 @@
 class CommentsController < ApplicationController
 
+	def new
+		@article = Article.find_by(id: params[:article_id])
+  		respond_to do |format|
+  			format.js
+  		end
+	end
+
 	def create
 		@article = Article.find(params[:article_id])
   		@comment = @article.comments.create(comment_params)
   		@comment.user_id = current_user.id
-		if @comment.save
-      		flash.now[:danger] = "Successfully Commented"
-			redirect_to article_path(@article)
-    	else
-      		flash.now[:danger] = "Error"
+		respond_to do |format|
+			if @comment.save
+				format.html { redirect_to article_path(@article) }
+    			format.js
+    		else
+    			format.html {redirect_to @article}
+      			format.json { render json: @article.errors }
+    		end
     	end
 	end
 	def destroy
