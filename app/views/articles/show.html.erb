@@ -34,10 +34,7 @@
 			</td>
 		</tr>
 	</table>
-	
-		<%#= render "comments/form", remote: true %>
 		<div class="new-comment-container">
-			new comment container
 		</div>
 		<div class="show">
 			<%= render 'comments/comments', comment: @article.comments if @article.comments.present? %>

@@ -21,11 +21,14 @@ class CommentsController < ApplicationController
     		end
     	end
 	end
+
 	def destroy
-		@article = Article.find(params[:article_id])
-  		@comment = @article.comments.find(params[:id])
-  		if @comment.destroy
-  			redirect_to article_path(@article)
+  		@comment = Comment.find_by(id: params[:id])
+  		respond_to do |format|
+	  		if @comment.destroy
+	  			format.html { redirect_to article_path(Article.find(params[:article_id])) }
+	  			format.js
+	  		end
   		end
 	end
 
