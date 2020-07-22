@@ -1,21 +1,10 @@
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-
-<table>
-  <thead>
-    <tr>
-      <th>Comments:</th>
-    </tr>
-  </thead>
-  <tbody class="all-comments-container">
-    <% comment.each do |comment| %>  
-      <tr id="comment-<%= comment.id %>">
-        <td>
-          <%= comment.body%>
-        </td>
-        <td>
-        	<%= link_to " delete", [@article,comment], method: :delete, data:{confirm: "are you sure"},remote: true, class: "glyphicon glyphicon-trash btn btn-danger " %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% comment.each do |comment| %>  
+  <tr id="comment-<%= comment.id %>">
+    <td>
+      <%= comment.body%>
+    </td>
+    <td>
+    	<%= link_to " delete", [@article,comment], method: :delete, remote: true, class: "glyphicon glyphicon-trash btn btn-danger " %>
+    </td>
+  </tr>
+<% end %>

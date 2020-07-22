@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@article = Article.find(params[:article_id])
+		@article = Article.find_by(id: params[:article_id])
   		@comment = @article.comments.create(comment_params)
   		@comment.user_id = current_user.id
 		respond_to do |format|
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   		@comment = Comment.find_by(id: params[:id])
   		respond_to do |format|
 	  		if @comment.destroy
-	  			format.html { redirect_to article_path(Article.find(params[:article_id])) }
+	  			format.html { redirect_to article_path(Article.find_by(id: params[:article_id])) }
 	  			format.js
 	  		end
   		end

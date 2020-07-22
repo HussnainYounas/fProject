@@ -11,11 +11,7 @@
 			<% end %>
 		</td>
 		<td>
-			<% if current_user != nil && current_user.id == article.user_id %>
 				<%= link_to 'show', article_path(article), class: "btn btn-info" %>
-			<% else %>
-			 	<i>NA</i>
-			<% end %>
 		</td>
 		<td>
 			<% if current_user != nil && current_user.id == article.user_id %>
@@ -31,6 +27,9 @@
 				<%= time_ago_in_words(article.created_at) %> ago,
 				last updated: <%= time_ago_in_words(article.updated_at) %> ago
 			</small>
+		</td>
+		<td>
+			<p><%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 		</td>
 	</tr>
 <% end %>

@@ -15,7 +15,8 @@ gem 'puma', '~> 3.7'
 # Use bootstrap for
 # gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # gem 'bootstrap', '~> 4.0.0'
-
+# gem 'sass-rails', '~> 5.0'
+# gem 'jquery-rails'
 #use sassc
 # gem 'sassc-rails', '>= 2.1.0'
 # gem 'sass-rails', '~> 5.0'

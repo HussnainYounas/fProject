@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :set_article, only: [:edit, :update, :show, :destroy]
+	before_action :set_article, only: [:edit, :show, :update, :destroy]
 
 	def new
 		@article = Article.new
@@ -75,24 +75,28 @@ class ArticlesController < ApplicationController
 		end
 	end
 
-# Strong Parameters is a feature of Rails that prevents 
-# assigning request parameters to objects unlesss they 
-# have been explicitly permitted.
+	# Strong Parameters is a feature of Rails that prevents 
+	# assigning request parameters to objects unlesss they 
+	# have been explicitly permitted.
 	private
 	def article_params
 		params.require(:article).permit(:title, :description)
 	end
+
 	def set_article
-		
 		if current_user.nil?
+			# TODO: convrt all flash messages to I18n
 			# flash[:danger] = I18n.t(warning.login) 
-			flash[:danger] = "you are not eligible for this action SignIn" 
+			flash[:danger] = "you are not eligible for this action. Please SignIn !" 
 			redirect_to login_path and return
-		elsif current_user.present?
-			@article = current_user.articles.where(id: params[:id]).first
-			if @article.blank?
-				redirect_to articles_path, alert: 'This action not available to you.' and return 
-			end
+		elsif current_user.present? && params[:action] == 'show'
+			p '*'*100
+			p params.inspect
+			p '*'*100
+			@article = Article.find_by(id: params[:id])
+		elsif current_user.present? && !params[:action] == 'show'
+			@article = current_user.articles.where(id: params[:id]).last
 		end
+		redirect_to articles_path, alert: 'This action not available to you.' and return if @article.blank?
 	end
 end

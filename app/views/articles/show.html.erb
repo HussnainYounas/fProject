@@ -25,18 +25,29 @@
 			<td ><%= @article.description%></td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				
-				<%= link_to 'Back', articles_path, class: "btn btn-info" %> |
-				<%= link_to "Edit", edit_article_path(@article),class: "btn btn-xs btn-primary" %> |
-				<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you suure?"},class: "btn btn-danger" %>
-				<%= link_to "add comment", new_article_comment_path(@article), :remote => true,class: "btn btn-success " %>
-			</td>
+		 <td colspan="2">	
+		  <%= link_to 'Back', articles_path, class: "btn btn-info" %> |
+		  <%= link_to "Edit", edit_article_path(@article),class: "btn btn-xs btn-primary" %> |
+		  <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you suure?"},class: "btn btn-danger" %> |
+		  <%= link_to "add comment", new_article_comment_path(@article), :remote => true,class: "btn btn-success " %> |
+		<span id="like-dislike">
+			<%= render "articles/likes-dislikes" %> 
+		</span>
+		</td>
 		</tr>
 	</table>
-		<div class="new-comment-container">
-		</div>
-		<div class="show">
-			<%= render 'comments/comments', comment: @article.comments if @article.comments.present? %>
-		</div>
+	<div class="new-comment-container">
+	</div>
+	<div class="show">
+		<table>
+			<thead>
+				<tr>
+					<th>Comments:</th>
+				</tr>
+			</thead>
+			<tbody class="all-comments-container">
+				<%= render 'comments/comments', comment: @article.comments %>
+		    </tbody>
+		</table>
+	</div>
 </div>

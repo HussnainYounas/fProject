@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #start
   resources :articles do
     resources :comments
+     resources :likes
   end
   root 'pages#index'
   get '/about', to: 'pages#about'
