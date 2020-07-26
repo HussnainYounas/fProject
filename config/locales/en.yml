@@ -32,4 +32,14 @@
 en:
   hello: "Hello world"
   warning:
-      login: "You are not eligible for this action please SignIn"
+      login: "you are not eligible for this action. Please SignIn !"
+      detail: 'There was a problem in information that you have entered so Try again!'
+  success:
+      done: "Successfully complete a action"
+# en:
+#   global:
+#     forms:
+#       messages:
+#         errors:
+#           one: "One error prohibited this article from being saved"
+#           other: "%{count} errors prohibited this article from being saved"

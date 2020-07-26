@@ -9,11 +9,13 @@ class ArticlesController < ApplicationController
 		@article = current_user.articles.new(article_params)
 		# @article.user = current_user
 		respond_to do |format|
-			if @article.save!
+			if @article.save
+				flash[:danger] = t 'success.done' 
 				format.html {redirect_to @article}
 				format.js
 				format.json {render :show, status: :created, location: @article}
 			else
+				flash[:danger] = t 'warning.detail' 
 				format.html { render :new}
 				format.json { render json: @article.errors, status: :unprocessable_entity }
 			end
@@ -86,16 +88,12 @@ class ArticlesController < ApplicationController
 	def set_article
 		if current_user.nil?
 			# TODO: convrt all flash messages to I18n
-			# flash[:danger] = I18n.t(warning.login) 
-			flash[:danger] = "you are not eligible for this action. Please SignIn !" 
+			# flash[:danger] = "you are not eligible for this action. Please SignIn !" 
 			redirect_to login_path and return
 		elsif current_user.present? && params[:action] == 'show'
-			p '*'*100
-			p params.inspect
-			p '*'*100
 			@article = Article.find_by(id: params[:id])
-		elsif current_user.present? && !params[:action] == 'show'
-			@article = current_user.articles.where(id: params[:id]).last
+		elsif current_user.present? && params[:action] != 'show'
+			@article = current_user.articles.where(id: params[:id]).first
 		end
 		redirect_to articles_path, alert: 'This action not available to you.' and return if @article.blank?
 	end
